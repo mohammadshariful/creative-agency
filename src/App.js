@@ -1,8 +1,11 @@
+import Menubar from "./shared/Menubar";
+
 function App() {
   return (
-    <div>
+    <>
+      <Menubar />
       <h2>Hello World</h2>
-    </div>
+    </>
   );
 }
 
