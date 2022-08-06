@@ -86,8 +86,9 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold text-xl">Contacts</h3>
             <p>
-              <span>Address : </span> #24,MK SQURE 2nd Floor,Sri Vari
-              Ramakrishna Garden,Sivanandapuram,Coimbatore -06,Tamilnadu.
+              <span className="font-bold">Address : </span> #24,MK SQURE 2nd
+              Floor,Sri Vari Ramakrishna Garden,Sivanandapuram,Coimbatore
+              -06,Tamilnadu.
             </p>
             <ul>
               <li>

@@ -18,7 +18,7 @@ const Menubar = () => {
     </>
   );
   return (
-    <nav className="bg-secondary">
+    <nav className="bg-secondary sticky top-0 left-0 z-40">
       <div class="navbar lg:w-[90%] mx-auto ">
         <div class="navbar-start">
           <div class="dropdown">
