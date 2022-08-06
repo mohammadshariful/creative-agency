@@ -15,7 +15,12 @@ const Footer = () => {
       }}
       className=" text-white "
     >
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm:justify-items-center gap-10 bg-black px-16 py-4">
+      <div
+        style={{
+          background: "#24292F",
+        }}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm:justify-items-center gap-10 px-16 py-4"
+      >
         <div className="flex items-center gap-3">
           <AiOutlinePhone className="bg-neutral  rounded-full    text-3xl lg:text-4xl p-2" />
           <div>
@@ -103,7 +108,12 @@ const Footer = () => {
           </div>
         </div>
       </section>
-      <div className="px-16 flex justify-between items-center flex-col-reverse md:flex-row font-light bg-black py-2">
+      <div
+        style={{
+          background: "#24292F",
+        }}
+        className="px-16 flex justify-between items-center flex-col-reverse md:flex-row font-light  py-2"
+      >
         <p className="text-center">
           copyright &copy; {new Date().getFullYear()} Creative Agency.All rights
           reserved.

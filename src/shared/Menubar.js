@@ -1,6 +1,7 @@
 import React from "react";
 import { RiMenu4Fill } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import logo from "../assets/images/logo.png";
 import CustomLink from "./CustomLink";
 const Menubar = () => {
   const menu = (
@@ -10,10 +11,10 @@ const Menubar = () => {
       <CustomLink to="/team">Our Team</CustomLink>
       <CustomLink to="/contact">Contact Us</CustomLink>
       <Link
-        to="/login"
+        to="/signin"
         className="mx-3 font-semibold sm:text-lg text-secondary bg-white px-3 py-1 rounded-sm hover:text-neutral"
       >
-        Login
+        SignIn
       </Link>
     </>
   );
@@ -36,7 +37,7 @@ const Menubar = () => {
             className="font-semibold text-base sm:text-xl text-white whitespace-nowrap"
             to="/"
           >
-            Creative <span>Agency</span>
+            <img src={logo} alt="logo" />
           </Link>
         </div>
         <div class="navbar-end hidden lg:flex">
