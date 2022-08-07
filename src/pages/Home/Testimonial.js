@@ -8,9 +8,18 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 // import required modules
 import { Autoplay, EffectCoverflow, Pagination } from "swiper";
+import useQueryDataLoad from "../../hooks/useQueryDataLoad";
 
 const Testimonial = () => {
-  const services = [1, 2, 3];
+  const url = "testimonials.json";
+  const {
+    data: users,
+    isLoading,
+    isError,
+  } = useQueryDataLoad("testimonials", url);
+  if (isLoading) {
+    return <p>loading...</p>;
+  }
   return (
     <section className="w-[90%] mx-auto my-5">
       <h2 className="text-center font-semibold text-xl lg:text-3xl ">
@@ -47,9 +56,9 @@ const Testimonial = () => {
         modules={[EffectCoverflow, Pagination, Autoplay]}
         className="mySwiper"
       >
-        {services.map((service, index) => (
-          <SwiperSlide key={index}>
-            <TestmimonialRow service={service} />
+        {users.map((user) => (
+          <SwiperSlide key={user._id}>
+            <TestmimonialRow user={user} />
           </SwiperSlide>
         ))}
       </Swiper>

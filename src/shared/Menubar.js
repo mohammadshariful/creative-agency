@@ -20,15 +20,15 @@ const Menubar = () => {
   );
   return (
     <nav className="bg-secondary sticky top-0 left-0 z-40">
-      <div class="navbar lg:w-[90%] mx-auto ">
-        <div class="navbar-start">
-          <div class="dropdown">
-            <label tabIndex="0" class="btn btn-ghost lg:hidden">
+      <div className="navbar lg:w-[90%] mx-auto ">
+        <div className="navbar-start">
+          <div className="dropdown">
+            <label tabIndex="0" className="btn btn-ghost lg:hidden">
               <RiMenu4Fill className="text-white" fontSize={24} />
             </label>
             <ul
               tabIndex="0"
-              class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-secondary rounded-box w-52 text-center"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-secondary rounded-box w-52 text-center"
             >
               {menu}
             </ul>
@@ -40,8 +40,8 @@ const Menubar = () => {
             <img src={logo} alt="logo" />
           </Link>
         </div>
-        <div class="navbar-end hidden lg:flex">
-          <ul class="menu menu-horizontal items-center"> {menu}</ul>
+        <div className="navbar-end hidden lg:flex">
+          <ul className="menu menu-horizontal items-center"> {menu}</ul>
         </div>
       </div>
     </nav>

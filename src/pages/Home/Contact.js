@@ -17,17 +17,17 @@ const Contact = () => {
             <input
               type="text"
               placeholder="Your name / Company's name"
-              class="input input-bordered w-full"
+              className="input input-bordered w-full"
               required
             />
             <input
               type="email"
               placeholder="Your email address"
-              class="input input-bordered w-full"
+              className="input input-bordered w-full"
               required
             />
             <textarea
-              class="textarea textarea-bordered w-full resize-none h-36"
+              className="textarea textarea-bordered w-full resize-none h-36"
               placeholder="Message"
               required
             ></textarea>

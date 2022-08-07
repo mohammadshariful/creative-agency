@@ -1,0 +1,22 @@
+[
+  {
+    "_id": "012db4",
+    "name": "Web & Mobile design",
+    "icon": "https://i.ibb.co/p0Dt8F2/service1.png",
+    "description": "We craft stunning and amazing web UI, using a well drrafted UX to fit your product."
+  },
+
+  {
+    "_id": "012d36",
+    "name": "Graphic design",
+    "icon": "https://i.ibb.co/vYSNQNc/service2.png",
+    "description": "Amazing flyers, social media posts and brand representations that would make your brand stand out."
+  },
+
+  {
+    "_id": "014tb4",
+    "name": "Web development",
+    "icon": "https://i.ibb.co/L55ymy5/service3.png",
+    "description": "With well written codes, we build amazing apps for all platforms, mobile and web apps in general."
+  }
+]
