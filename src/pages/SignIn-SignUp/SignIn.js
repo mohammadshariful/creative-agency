@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import singIn from "../../assets/images/signin.jpg";
+import auth from "../../firebase.config";
 import SocialLogin from "../../shared/SocialLogin";
 const SignIn = () => {
   const {
@@ -10,7 +11,7 @@ const SignIn = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-
+  console.log(auth);
   const onSubmit = (data) => console.log(data);
   return (
     <section className=" w-[90%] mx-auto flex justify-center items-center my-5">
