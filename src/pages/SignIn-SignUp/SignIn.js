@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import singIn from "../../assets/images/signin.jpg";
 import auth from "../../firebase.config";
+import Loading from "../../shared/Loading";
 import SocialLogin from "../../shared/SocialLogin";
 const SignIn = () => {
   const {
@@ -11,8 +13,23 @@ const SignIn = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  console.log(auth);
-  const onSubmit = (data) => console.log(data);
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  const navigate = useNavigate();
+  const location = useLocation();
+  let from = location?.state?.from?.pathname || "/";
+  useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true });
+    }
+  }, [user, navigate, from]);
+
+  if (loading) {
+    return <Loading loading={loading} />;
+  }
+  const onSubmit = async ({ email, password }) => {
+    await signInWithEmailAndPassword(email, password);
+  };
   return (
     <section className=" w-[90%] mx-auto flex justify-center items-center my-5">
       <div className="flex">
@@ -96,6 +113,7 @@ const SignIn = () => {
               type="submit"
               value="Sign In"
             />
+            {error && <p className="text-center text-error">{error.message}</p>}
           </form>
           <p className="text-right mt-2 text-secondary font-bold cursor-pointer">
             Forget your password?

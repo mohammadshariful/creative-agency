@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
+import {
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import singup from "../../assets/images/signup.jpg";
+import auth from "../../firebase.config";
+import Loading from "../../shared/Loading";
 import SocialLogin from "../../shared/SocialLogin";
 const Signup = () => {
   const {
@@ -10,8 +16,25 @@ const Signup = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
+  const navigate = useNavigate();
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth, { emailVerificationOptions: true });
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
-  const onSubmit = (data) => console.log(data);
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
+  if (loading || updating) {
+    return <Loading loading={loading || updating} />;
+  }
+
+  const onSubmit = async ({ name, email, password }) => {
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName: name });
+  };
+
   return (
     <section className=" w-[90%] mx-auto flex justify-center items-center my-5">
       <div className="flex">
@@ -118,6 +141,11 @@ const Signup = () => {
               type="submit"
               value="Sign Up"
             />
+            {(error || updateError) && (
+              <p className="text-center text-error">
+                {error.message || updateError.message}
+              </p>
+            )}
           </form>
           <p className="mt-2">
             Already have an account?
