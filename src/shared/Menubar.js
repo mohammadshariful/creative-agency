@@ -1,21 +1,37 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { RiMenu4Fill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.png";
+import auth from "../firebase.config";
 import CustomLink from "./CustomLink";
 const Menubar = () => {
+  const [user] = useAuthState(auth);
   const menu = (
     <>
       <CustomLink to="/">Home</CustomLink>
       <CustomLink to="/portfolio">Our Portfolio</CustomLink>
       <CustomLink to="/team">Our Team</CustomLink>
       <CustomLink to="/contact">Contact Us</CustomLink>
-      <Link
-        to="/signin"
-        className="mx-3 font-semibold sm:text-lg text-secondary bg-white px-3 py-1 rounded-sm hover:text-neutral"
-      >
-        SignIn
-      </Link>
+      {user ? (
+        <Link
+          onClick={() => {
+            signOut(auth);
+          }}
+          to="/signin"
+          className="mx-3 font-semibold sm:text-lg text-secondary bg-white px-3 py-1 rounded-sm hover:text-neutral"
+        >
+          SignOut
+        </Link>
+      ) : (
+        <Link
+          to="/signin"
+          className="mx-3 font-semibold sm:text-lg text-secondary bg-white px-3 py-1 rounded-sm hover:text-neutral"
+        >
+          SignIn
+        </Link>
+      )}
     </>
   );
   return (
