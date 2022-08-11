@@ -1,5 +1,6 @@
 import React from "react";
 import useQueryDataLoad from "../../hooks/useQueryDataLoad";
+import Loading from "../../shared/Loading";
 import ServiceRow from "./ServiceRow";
 
 const Services = () => {
@@ -10,7 +11,7 @@ const Services = () => {
     isError,
   } = useQueryDataLoad("services", url);
   if (isLoading) {
-    return <p>loading...</p>;
+    return <Loading loading={isLoading} />;
   }
 
   return (

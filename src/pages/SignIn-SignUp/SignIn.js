@@ -116,7 +116,7 @@ const SignIn = () => {
             {error && <p className="text-center text-error">{error.message}</p>}
           </form>
           <p className="text-right mt-2 text-secondary font-bold cursor-pointer">
-            Forget your password?
+            <Link to="/signin/forgetpassword">Forget your password?</Link>
           </p>
           <p>
             Are you new here?

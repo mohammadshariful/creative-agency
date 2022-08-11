@@ -33,7 +33,7 @@ const Contact = () => {
             ></textarea>
             <button
               type="submit"
-              className="btn btn-md w-24 bg-black text-white border-secondary hover:bg-black hover:border-secondary"
+              className="btn btn-md w-24 bg-[#24292F] text-white border-secondary hover:bg-[#24292F] hover:border-secondary"
             >
               Send
             </button>

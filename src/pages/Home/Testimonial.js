@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 // import required modules
 import { Autoplay, EffectCoverflow, Pagination } from "swiper";
 import useQueryDataLoad from "../../hooks/useQueryDataLoad";
-
+import Loading from "../../shared/Loading";
 const Testimonial = () => {
   const url = "testimonials.json";
   const {
@@ -18,7 +18,7 @@ const Testimonial = () => {
     isError,
   } = useQueryDataLoad("testimonials", url);
   if (isLoading) {
-    return <p>loading...</p>;
+    return <Loading loading={isLoading} />;
   }
   return (
     <section className="w-[90%] mx-auto my-5">
